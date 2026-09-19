@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * Every colour and font used by components must come from this file.
+ * Brand colours (navy scale) are added in Phase 2, derived from the logo.
+ * Only neutral tokens exist for now.
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /*
+   * System font stack for now. Phase 2 replaces it with the chosen family
+   * (loaded through next/font) by redefining this single token.
+   */
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
