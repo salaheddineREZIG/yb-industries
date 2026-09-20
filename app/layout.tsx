@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// TEMPORARY metadata: replaced in the SEO phase (Phase 8).
+// TEMPORARY metadata: replaced in the SEO phase.
 // `metadataBase` is added once the production domain is known (TO BE PROVIDED).
 export const metadata: Metadata = {
   title: {

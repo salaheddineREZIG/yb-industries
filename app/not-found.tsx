@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Page introuvable",
 };
 
-// Minimal 404. The final version is designed in Phase 8.
+// Minimal 404. The final version is designed in a later phase.
 export default function NotFound() {
   return (
     <SiteShell>

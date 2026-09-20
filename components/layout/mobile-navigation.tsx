@@ -26,9 +26,9 @@ export function MobileNavigation() {
         ref={buttonRef}
         type="button"
         aria-expanded={open}
-        aria-controls="navigation-mobile"
+        aria-controls={open ? "navigation-mobile" : undefined}
         onClick={() => setOpen((value) => !value)}
-        className="h-10 rounded-sm border border-border-strong px-4 font-medium hover:bg-surface"
+        className="h-11 rounded-sm border border-border-strong px-4 font-medium hover:bg-surface"
       >
         Menu
       </button>
