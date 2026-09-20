@@ -1,14 +1,17 @@
-import { Logo } from "@/components/ui/logo";
+import { SiteShell } from "@/components/layout/site-shell";
+import { Section } from "@/components/ui/section";
+import { siteName } from "@/lib/site";
 
-// TEMPORARY development marker. Replaced by the real homepage in Phase 6.
+// TEMPORARY visual test of the interface foundation. Replaced in Phase 6.
 export default function Home() {
   return (
-    <main className="p-6">
-      <Logo className="w-40" priority />
-      <h1 className="mt-4 text-2xl font-semibold">YB INDUSTRIES</h1>
-      <p className="mt-2 text-muted-foreground">
-        Site en cours de développement.
-      </p>
-    </main>
+    <SiteShell>
+      <Section>
+        <h1 className="text-page-title font-semibold">{siteName}</h1>
+        <p className="mt-3 text-muted-foreground">
+          L’interface du site est en cours de construction.
+        </p>
+      </Section>
+    </SiteShell>
   );
 }
