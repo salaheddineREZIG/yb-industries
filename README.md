@@ -50,3 +50,7 @@ public/
 - No API routes, Server Actions, middleware, redirects or rewrites.
 - Dynamic routes must define `generateStaticParams()`.
 - `next/image` runs with `unoptimized: true`, so images must be optimized (WebP/AVIF, sized) before being committed.
+## Catalogue and launch
+
+- Adding or editing products: `docs/catalogue.md`
+- Before publishing the site: `docs/launch-checklist.md`
