@@ -5,9 +5,6 @@ export type NavigationItem = {
 
 export const navigation: readonly NavigationItem[] = [
   { label: "Accueil", href: "/" },
-  { label: "Produits", href: "/produits" },
-  { label: "À propos", href: "/a-propos" },
-  { label: "Applications", href: "/applications" },
-  { label: "Documentation", href: "/documentation" },
+  { label: "Catalogue", href: "/catalogue" },
   { label: "Contact", href: "/contact" },
 ];

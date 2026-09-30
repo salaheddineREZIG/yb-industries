@@ -10,9 +10,9 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "border-primary bg-primary text-primary-foreground hover:border-primary-hover hover:bg-primary-hover",
+    "border-primary bg-primary text-primary-foreground shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-hover hover:bg-primary-hover hover:shadow-md",
   secondary:
-    "border-border-strong bg-background text-foreground hover:bg-surface",
+    "border-border-strong bg-background text-foreground transition-colors duration-200 hover:border-primary hover:bg-surface",
 } as const;
 
 export function ButtonLink({

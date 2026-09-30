@@ -54,4 +54,24 @@ export type Product = {
   documents?: readonly ProductDocument[];
   /** Slugs of other products. */
   relatedProducts?: readonly string[];
+  pumpTechnicalData?: PumpTechnicalData;
+};
+
+export type PerformancePoint = {
+  debitLMin: number;
+  debitM3H: number;
+  hauteurManometriqueM: number;
+};
+
+export type PumpTechnicalData = {
+  type: string;
+  tension: string;
+  frequenceHz: number;
+  uniteHauteur: string;
+  uniteDebit: string;
+  nombreEtages: number;
+  puissanceKw: number;
+  puissanceCh: number;
+  courantNominalA: number;
+  performance: readonly PerformancePoint[];
 };

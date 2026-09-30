@@ -11,4 +11,12 @@ export type CompanyInfo = {
   openingHours?: readonly string[];
 };
 
-export const company: CompanyInfo = {};
+export const company: CompanyInfo = {
+  addressLines: [
+    "YAGOUB BRAHIM",
+    "BP 382 / 514 Oasis Nord, Laghouat",
+    "Fabrication de matériel hydraulique et électrique",
+  ],
+  phone: "0657068472",
+  email: "yafilec@yahoo.fr",
+};

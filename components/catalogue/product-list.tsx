@@ -13,13 +13,13 @@ export function ProductList({ products }: { products: readonly Product[] }) {
         const image = product.images?.[0];
 
         return (
-          <li key={product.slug}>
+          <li key={product.slug} className="animate-rise-in">
             <Link
               href={`/produits/${product.slug}`}
-              className="block h-full border border-border hover:border-border-strong"
+              className="group block h-full overflow-hidden border border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_12px_30px_rgb(7_89_133_/_0.12)]"
             >
               {image ? (
-                <div className="relative aspect-[4/3] bg-surface">
+                <div className="relative aspect-[4/3] bg-surface transition-colors duration-200 group-hover:bg-surface-secondary">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -33,8 +33,8 @@ export function ProductList({ products }: { products: readonly Product[] }) {
                   <PlaceholderImage />
                 </div>
               )}
-              <div className="p-4">
-                <h3 className="text-subsection-title font-semibold">
+              <div className="border-t border-border p-5">
+                <h3 className="text-subsection-title font-semibold text-foreground transition-colors group-hover:text-primary">
                   {product.name}
                 </h3>
                 {product.shortDescription && (

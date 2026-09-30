@@ -104,6 +104,10 @@ export function getSubcategoryById(id: string): Subcategory | undefined {
   return subcategories.find((s) => s.id === id);
 }
 
+export function getSubcategoryBySlug(slug: string): Subcategory | undefined {
+  return subcategories.find((s) => s.slug === slug);
+}
+
 export function getSubcategoriesOf(categoryId: string): Subcategory[] {
   return subcategories.filter((s) => s.categoryId === categoryId);
 }
@@ -118,6 +122,10 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getProductsByCategory(categoryId: string): Product[] {
   return products.filter((p) => p.categoryId === categoryId);
+}
+
+export function getProductsBySubcategory(subcategoryId: string): Product[] {
+  return products.filter((p) => p.subcategoryId === subcategoryId);
 }
 
 export function getRelatedProducts(product: Product): Product[] {

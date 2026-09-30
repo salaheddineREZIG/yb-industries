@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type SectionProps = {
   children: ReactNode;
-  /** Full-width background band: "default" is white, "surface" is light grey. */
+  /** Full-width background band: "default" is pale, "surface" is aqua. */
   tone?: "default" | "surface";
   id?: string;
   className?: string;

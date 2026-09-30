@@ -1,42 +1,46 @@
 import { SiteShell } from "@/components/layout/site-shell";
 import { ButtonLink } from "@/components/ui/button-link";
-import { PageHeader } from "@/components/ui/page-header";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { Section } from "@/components/ui/section";
 import { siteName } from "@/lib/site";
 
-// TEMPORARY visual test of the UI primitives. Replaced when the real homepage is built.
 export default function Home() {
   return (
     <SiteShell>
-      <PageHeader
-        title={siteName}
-        description="L’interface du site est en cours de construction."
-      />
-      <Section>
-        <h2 className="text-section-title font-semibold">Titre de section (test)</h2>
-        <h3 className="mt-6 text-subsection-title font-semibold">
-          Titre de sous-section (test)
-        </h3>
-        <p className="mt-3 max-w-3xl">
-          Texte courant de test. Ce contenu est temporaire.
-        </p>
-        <p className="mt-3 text-meta text-muted-foreground">
-          Texte secondaire de test.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <ButtonLink href="/produits">Bouton principal</ButtonLink>
-          <ButtonLink href="/contact" variant="secondary">
-            Bouton secondaire
-          </ButtonLink>
+      <section className="water-band border-b border-border">
+        <div className="page-container relative py-16 md:py-24">
+          <div className="relative z-10 max-w-3xl animate-rise-in">
+            <p className="text-meta font-semibold uppercase tracking-[0.2em] text-primary">
+              Hydraulique / Électrique
+            </p>
+            <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+              La puissance en mouvement.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+              {siteName} accompagne les installations de pompage avec des équipements conçus pour travailler dans la durée.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href="/catalogue">Explorer le catalogue</ButtonLink>
+              <ButtonLink href="/contact" variant="secondary">
+                Nous contacter
+              </ButtonLink>
+            </div>
+          </div>
+          <span aria-hidden="true" className="water-line" />
         </div>
-      </Section>
-      <Section tone="surface">
-        <h2 className="text-section-title font-semibold">
-          Image de remplacement (test)
-        </h2>
-        <div className="mt-6 max-w-md">
-          <PlaceholderImage />
+      </section>
+      <Section>
+        <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-end">
+          <div>
+            <p className="text-meta font-semibold uppercase tracking-[0.18em] text-primary">Notre catalogue</p>
+            <h2 className="mt-3 text-section-title font-semibold">Des références claires, des données utiles.</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              Parcourez les moteurs, les pompes et les produits spécialisés, puis consultez les caractéristiques de chaque référence.
+            </p>
+          </div>
+          <div className="border-l-2 border-primary/30 pl-5 text-meta text-muted-foreground">
+            <p className="font-semibold text-foreground">Conçu pour décider vite.</p>
+            <p className="mt-2">Une navigation par familles, modèles et niveaux de performance.</p>
+          </div>
         </div>
       </Section>
     </SiteShell>

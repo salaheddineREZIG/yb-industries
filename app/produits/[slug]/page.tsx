@@ -45,6 +45,7 @@ export default async function ProductPage({ params }: Props) {
   const specifications = product.specifications ?? [];
   const documents = product.documents ?? [];
   const related = getRelatedProducts(product);
+  const pumpData = product.pumpTechnicalData;
 
   return (
     <SiteShell>
@@ -115,6 +116,47 @@ export default async function ProductPage({ params }: Props) {
                 </ul>
               </>
             )}
+
+            {pumpData && (
+              <>
+                <h2 className="mt-8 text-section-title font-semibold">
+                  Données techniques de la pompe
+                </h2>
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full border-collapse text-left">
+                    <caption className="sr-only">
+                      Données techniques de {product.name}
+                    </caption>
+                    <tbody>
+                      <tr className="border-b border-border">
+                        <th scope="row" className="w-1/2 py-3 pr-4 font-medium">Type</th>
+                        <td className="py-3">{pumpData.type}</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <th scope="row" className="py-3 pr-4 font-medium">Tension</th>
+                        <td className="py-3">{pumpData.tension}</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <th scope="row" className="py-3 pr-4 font-medium">Fréquence</th>
+                        <td className="py-3">{pumpData.frequenceHz} Hz</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <th scope="row" className="py-3 pr-4 font-medium">Nombre d&apos;étages</th>
+                        <td className="py-3">{pumpData.nombreEtages}</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <th scope="row" className="py-3 pr-4 font-medium">Puissance</th>
+                        <td className="py-3">{pumpData.puissanceKw} kW / {pumpData.puissanceCh} ch</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className="py-3 pr-4 font-medium">Courant nominal</th>
+                        <td className="py-3">{pumpData.courantNominalA} A</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Section>
@@ -175,6 +217,40 @@ export default async function ProductPage({ params }: Props) {
               </ul>
             </>
           )}
+        </Section>
+      )}
+
+      {pumpData && (
+        <Section tone="surface">
+          <h2 className="text-section-title font-semibold">
+            Débit et hauteur manométrique
+          </h2>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[34rem] border-collapse text-left">
+              <caption className="sr-only">
+                Débit et hauteur manométrique de {product.name}
+              </caption>
+              <thead>
+                <tr className="border-b border-border">
+                  <th scope="col" className="py-3 pr-4 font-medium">Débit (L/min)</th>
+                  <th scope="col" className="py-3 pr-4 font-medium">Débit (m³/h)</th>
+                  <th scope="col" className="py-3 font-medium">Hauteur ({pumpData.uniteHauteur})</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pumpData.performance.map((point) => (
+                  <tr
+                    key={`${point.debitLMin}-${point.debitM3H}`}
+                    className="border-b border-border"
+                  >
+                    <td className="py-3 pr-4">{point.debitLMin}</td>
+                    <td className="py-3 pr-4">{point.debitM3H}</td>
+                    <td className="py-3">{point.hauteurManometriqueM}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Section>
       )}
 

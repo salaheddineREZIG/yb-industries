@@ -12,12 +12,12 @@ export function Footer() {
     openingHours.length > 0;
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-[#0c3448] text-white">
       <div className="page-container flex flex-col gap-6 py-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="font-semibold">{siteName}</p>
+          <p className="font-semibold tracking-[0.14em] text-[#7dd3fc]">{siteName}</p>
           {hasContact && (
-            <address className="mt-3 space-y-2 text-meta not-italic">
+            <address className="mt-3 space-y-2 text-meta text-[#d8eef5] not-italic">
               {addressLines.length > 0 && (
                 <p>
                   {addressLines.map((line, index) => (
@@ -31,7 +31,7 @@ export function Footer() {
                 <p>
                   <a
                     href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                    className="underline underline-offset-4"
+                    className="underline decoration-[#7dd3fc] underline-offset-4"
                   >
                     {phone}
                   </a>
@@ -41,7 +41,7 @@ export function Footer() {
                 <p>
                   <a
                     href={`mailto:${email}`}
-                    className="underline underline-offset-4"
+                    className="underline decoration-[#7dd3fc] underline-offset-4"
                   >
                     {email}
                   </a>
@@ -65,7 +65,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-meta underline-offset-4 hover:underline"
+                  className="text-meta text-[#d8eef5] underline-offset-4 hover:text-[#7dd3fc] hover:underline"
                 >
                   {item.label}
                 </Link>
@@ -75,8 +75,8 @@ export function Footer() {
         </nav>
       </div>
 
-      <div className="border-t border-border">
-        <p className="page-container py-4 text-meta text-muted-foreground">
+      <div className="border-t border-white/15">
+        <p className="page-container py-4 text-meta text-[#b7d4df]">
           © {new Date().getFullYear()} YB INDUSTRIES. Tous droits réservés.
         </p>
       </div>

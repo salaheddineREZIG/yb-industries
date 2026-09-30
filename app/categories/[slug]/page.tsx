@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductList } from "@/components/catalogue/product-list";
 import { SiteShell } from "@/components/layout/site-shell";
@@ -8,6 +9,7 @@ import {
   getCategories,
   getCategoryBySlug,
   getProductsByCategory,
+  getSubcategoriesOf,
 } from "@/lib/catalogue";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,6 +33,7 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   const products = getProductsByCategory(category.id);
+  const categorySubcategories = getSubcategoriesOf(category.id);
 
   return (
     <SiteShell>
@@ -39,9 +42,31 @@ export default async function CategoryPage({ params }: Props) {
         description={category.shortDescription}
       />
       <Section>
-        <h2 className="text-section-title font-semibold">Produits</h2>
+        <h2 className="text-section-title font-semibold">
+          {categorySubcategories.length > 0 ? "Sous-catégories" : "Produits"}
+        </h2>
         <div className="mt-6">
-          {products.length > 0 ? (
+          {categorySubcategories.length > 0 ? (
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {categorySubcategories.map((subcategory) => (
+                <li key={subcategory.id}>
+                  <Link
+                    href={`/categories/${category.slug}/${subcategory.slug}`}
+                    className="block h-full border border-border p-5 hover:border-border-strong"
+                  >
+                    <h3 className="text-subsection-title font-semibold">
+                      {subcategory.name}
+                    </h3>
+                    {subcategory.shortDescription && (
+                      <p className="mt-2 text-meta text-muted-foreground">
+                        {subcategory.shortDescription}
+                      </p>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : products.length > 0 ? (
             <ProductList products={products} />
           ) : (
             <p className="text-muted-foreground">Aucun produit pour le moment.</p>
